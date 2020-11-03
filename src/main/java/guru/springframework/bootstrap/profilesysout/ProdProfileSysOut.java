@@ -1,5 +1,7 @@
 package guru.springframework.bootstrap.profilesysout;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +13,9 @@ import org.springframework.stereotype.Component;
 @Profile("PROD")
 public class ProdProfileSysOut {
 
-    public ProdProfileSysOut(){
+    @Autowired
+    public ProdProfileSysOut(@Value("${guru.springframework.profile.message}") String msg){
         System.out.println("production!!!!!!!");
+        System.out.println(msg);
     }
 }
